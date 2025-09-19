@@ -1,0 +1,8 @@
+com\qa\pages\LoginPage.class
+com\qa\runner\Runner.class
+com\qa\util\ElementActions.class
+com\qa\base\Base.class
+com\qa\stepdefinations\EmployeeCRUD.class
+com\qa\util\WaitMethods.class
+com\qa\util\CaptureScreenshot.class
+com\qa\util\ReadProperties.class

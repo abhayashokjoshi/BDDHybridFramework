@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.403178">
+<testcase classname="Employee CRUD and Search Operations" name="I am able to add edit, search and delete the employee" time="10.403178">
+<system-out><![CDATA[Given Navigate to PIM after log in with Admin user..........................passed
+When I Add employee with  first name as "AutUserFname" and mname as "AutUserMname" and lName as "AutUserLname".passed
+Then I  verify employeeAdded in list with  first name as "AutUserFname" and mname as "AutUserMname" and lName as "AutUserLname".passed
+When I click on Edit button and update below values and save the Data.......passed
+Then I search the employee and ensure that it is searched using below values.passed
+And I select and Delete the Updated Employee and verify employee is not  in search result.passed
+]]></system-out>
+</testcase>
+</testsuite>
