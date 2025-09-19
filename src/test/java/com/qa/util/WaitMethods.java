@@ -27,7 +27,7 @@ public class WaitMethods {
 	 * @param milisec
 	 *            This method will help to wait for specified time
 	 */
-	public void staticWait(long milisec) {
+	public static void staticWait(long milisec) {
 		try {
 			Thread.sleep(milisec);
 		} catch (InterruptedException e) {
