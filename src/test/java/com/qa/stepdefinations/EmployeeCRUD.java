@@ -1,8 +1,12 @@
 package com.qa.stepdefinations;
 
+import org.junit.Assert;
+
 import com.qa.base.Base;
+import com.qa.pages.AddEmployeePage;
 import com.qa.pages.LoginPage;
 import com.qa.util.CaptureScreenshot;
+import com.qa.util.ReadProperties;
 import com.qa.util.WaitMethods;
 
 import cucumber.api.DataTable;
@@ -15,13 +19,13 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class EmployeeCRUD extends Base {
-	
+
 	Scenario scenario;
 	LoginPage objLoginPage;
-	
+	AddEmployeePage objAddEmployeePage;
+
 	@Before
-	public void logintoApplication(Scenario scenario)
-	{
+	public void logintoApplication(Scenario scenario) {
 		this.scenario = scenario;
 	}
 
@@ -32,14 +36,29 @@ public class EmployeeCRUD extends Base {
 		driver = initializeWebDriver();
 		WaitMethods.staticWait(5000);
 		scenario.embed(CaptureScreenshot.captureImage(driver), "image/png");
-		
+		scenario.write("Logging in to Orange HRMS APplication");
+		objLoginPage = new LoginPage(driver, scenario);
+		String actualHomePageTitle = objLoginPage.logintoApplication(ReadProperties.getAppUserName(),
+				ReadProperties.getAppPassword());
+		Assert.assertEquals("Dashboard", actualHomePageTitle);
+		WaitMethods.staticWait(5000);
+		scenario.embed(CaptureScreenshot.captureImage(driver), "image/png");
+
+		scenario.write("Navigating to PIM Page");
+		objAddEmployeePage = new AddEmployeePage(driver, scenario);
+		objAddEmployeePage.navigateToPimPage();
+		WaitMethods.staticWait(5000);
+		scenario.embed(CaptureScreenshot.captureImage(driver), "image/png");
+
 	}
 
 	@When("^I Add employee with  first name as \"([^\"]*)\" and mname as \"([^\"]*)\" and lName as \"([^\"]*)\"$")
-	public void i_Add_employee_with_first_name_as_and_mname_as_and_lName_as(String arg1, String arg2, String arg3)
+	public void i_Add_employee_with_first_name_as_and_mname_as_and_lName_as(String fName, String mName, String lName)
 			throws Throwable {
-
-		System.out.println("Selenium Code to be added here!");
+		scenario.write("Adding new employee");
+		objAddEmployeePage.addnewEmployee(fName, mName, lName);
+		WaitMethods.staticWait(5000);
+		scenario.embed(CaptureScreenshot.captureImage(driver), "image/png");
 
 	}
 
@@ -73,10 +92,9 @@ public class EmployeeCRUD extends Base {
 		System.out.println("Selenium Code to be added here!");
 
 	}
-	
+
 	@After
-	public void closeApplication(Scenario scenario)
-	{
+	public void closeApplication(Scenario scenario) {
 		scenario.write("Closing the application");
 		closeBrowser();
 	}
