@@ -10,8 +10,11 @@ import cucumber.api.junit.Cucumber;
 // "com.qa.stepdefinations" }, tags = {"@executeallfromJenkins" }, plugin = { "pretty",
 // "html:target/cucumber-reports" }, monochrome = true)
 
-@CucumberOptions(features = "src/test/resources/features", glue = "com.qa.stepdefinations", tags = {"@executeallfromJenkins"}, plugin = { "pretty", "json:target/cucumber-report.json",
-		"junit:target/cucumber-report.xml" }, monochrome = true )
+@CucumberOptions(features = "src/test/resources/features", glue = "com.qa.stepdefinations", tags = {"@BuzzCRUDTest"}, plugin = { "pretty", "json:target/cucumber-report.json",
+		"json:target/cucumber-reports/Cucumber.json" }, monochrome = true )
+
+//json:target/cucumber-reports/Cucumber.json
+//local working code line : //junit:target/cucumber-report.xml
 
 public class Runner {
 
