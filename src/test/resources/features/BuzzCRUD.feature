@@ -9,7 +9,7 @@ Feature: Buzz CRUD Operations
     Then I verify the like count is updated as Expected count "<likecount>"
     When I Edit the post with updated comment"<updatedComment>"
     Then I verify that updated comment"<updatedComment>"
-    Then I delete the Post 
+    Then I delete the Post
 
     Examples:
       | Comment                         | likecount | updatedComment |

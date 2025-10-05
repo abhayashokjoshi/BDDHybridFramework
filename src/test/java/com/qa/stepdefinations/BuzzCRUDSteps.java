@@ -91,7 +91,7 @@ public class BuzzCRUDSteps extends Base {
 		objBuzzPage.EditPost(updatedCommentText);
 	}
 
-	@Then("^I verify that updated comment\"([^\"]*)\"$") 
+	@Then("^I verify that updated comment\"([^\"]*)\"$")
 	public void i_verify_that_updated_comment(String updatedCommentText) throws Throwable 
 	{
 		scenario.write("Verifying updated post containes the appended text ");

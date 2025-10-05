@@ -102,7 +102,7 @@ public class BuzzPage {
 
 	/**
 	 * Click on Like Button.
-	 */ 
+	 */
 	public void clickLikeButton() {
 		ElementActions.clickElement(driver, likeButton, scenario);
 	}
