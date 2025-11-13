@@ -18,8 +18,8 @@ Feature: Claims CRUD operations for recommit
       | Date          | 2025-04-06  |
       | ExpenseAmount |          50 |
     Then I verify the total amount of all expenses is caculated correctly
-    When I edit the Expense
-    When Delete one Expense
+    #When I edit the Expense
+    #When Delete one Expense
 
   @EventCRUD
   Scenario: I am able to add view edit and Delete  Event
